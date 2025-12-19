@@ -1,0 +1,56 @@
+# Barendregt’s Encoding of Natural Numbers (taken from hw2)
+
+# Let M and N be λ-terms. Barendregt’s encoding of natural numbers is given by the following combinators:
+
+# Booleans
+true = \x.\y.x; 
+false = \x.\y.y;
+
+# order pair (using church's encoding due to parser error) 
+pair = \x y. \f. f x y;
+
+fst = \p.p true;
+snd = \p.p false;
+
+# fixed point combinator (Y)
+Y = \f. (\x. f (x x)) (\x. f (x x));
+
+# successor (ditching "+" due to parser error)
+S = \x.pair false x;
+
+# test for zero
+Zero = \x.x true;
+
+# predecessor (ditching "-" due to parser error)
+P = \x.x false;
+
+# Barendregt's numerals
+ZeroBar = \x.x;
+zero = ZeroBar;
+nPlus1 = \n. S n;
+
+# church's numerals (for arithmety in recursion)
+
+one = S zero;
+two = S one;
+three = S two;
+four = S three;
+five = S four;
+six = S five;
+seven = S six;
+eight = S seven;
+nine = S eight;
+ten = S nine;
+
+# examples
+#for S+:
+succ0 = S zero;
+succ2 = S (nPlus1 (nPlus1 zero));
+
+#for P-:
+pred0 = P zero;
+pred1 = P nPlus1 zero;
+
+#for Zero:
+is02 = Zero (nPlus1 (nPlus1 zero));
+is00 = Zero zero;
