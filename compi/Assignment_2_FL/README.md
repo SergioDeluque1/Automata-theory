@@ -1,4 +1,4 @@
-# # CFG Left-Recursion Eliminator
+# CFG Left-Recursion Eliminator
 
 ### General info
 + Sergio Delúquez for the formal language's course 0127
