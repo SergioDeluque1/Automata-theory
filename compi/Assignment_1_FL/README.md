@@ -1,4 +1,4 @@
-## README_ASSIGNMENT_1
+# DFA State Equivalence
 
 ### General info
 + Sergio Delúquez for the formal language's course 0127
